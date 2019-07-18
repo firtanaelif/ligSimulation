@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Welcome{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container mt-5 shadow p-4">
+        <span><strong>Devam etmek için tıklayınız!</strong></span>
+        <a href="create" class="btn-block btn btn-info mt-4">Takım Ekle</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+{% block title %}Score Board{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container mt-5 shadow p-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Sıra</th>
+                <th scope="col">Takım Adı</th>
+                <th scope="col">Maç Sayısı</th>
+                <th scope="col">Galibiyet</th>
+                <th scope="col">Beraberlik</th>
+                <th scope="col">Mağlubiyet</th>
+                <th scope="col">Atılan Gol</th>
+                <th scope="col">Yenilen Gol</th>
+                <th scope="col">Averaj</th>
+                <th scope="col">Puan</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                {% for team in teams %}
+                <td> {{ loop.index }}</td>
+                {% for x in team %}
+                    <td>{{ x }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

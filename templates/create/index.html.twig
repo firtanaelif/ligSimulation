@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Add Team{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container mt-5 shadow p-4">
+        <h1>Takım adı giriniz : </h1>
+        <hr>
+        <ol type="1"><strong>Eklenen Takımlar</strong>
+        {% for team in teams %}
+            <li>{{team.name}}</li>
+        {% endfor %}
+        </ol>
+        <hr>
+        {% if form is defined and teamCount != 18 %}
+            {{form(form)}}
+        {% endif %}
+        {% if teamCount == 18 %}
+            <a href="{{path('create_fixture')}}" class="btn-block btn btn-info mt-4">Fikstur Oluşturmak İçin Tıkla</a>
+        {% endif %}
+        <hr>
+        <span><strong>Eklenmiş takım sayısı : </strong> {{teamCount}}</span>
+
+    </div>
+
+{% endblock %}

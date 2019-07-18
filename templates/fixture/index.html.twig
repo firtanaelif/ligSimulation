@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block title %}Fixture Page{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container mt-5 shadow p-4">
+        {% for week in fixture %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">HAFTA</th>
+                    <th scope="col">İÇ SAHA</th>
+                    <th scope="col">DEPLASMAN</th>
+                    <th>MAÇ SONUCU</th>
+                        <th><a href="play?id={{ loop.index }}" class="btn-block btn btn-info mt-4">BU HAFTAYI OYNAT</a></th>
+                    <th><a href="/scores" class="btn-block btn btn-info mt-4">SKOR TABLOSUNU GÖR</a> <th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    {% for match in week %}
+                        {% for indis in match %}
+                            <td>{{ indis }}</td>
+                        {% endfor %}
+                </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    </div>
+{% endblock %}
