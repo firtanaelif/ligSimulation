@@ -21,12 +21,11 @@ class FixtureController extends AbstractController
             $week = $this->getWeek($i);
             $thisWeek = [];
             foreach ($week as $match) {
-                $result = [
+                $thisWeek[] = [
                     'week' => $match->getWeek(),
                     'home' => $match->getHomeTeam()->getName(),
                     'away' => $match->getAwayTeam()->getName(),
                     'result' => $match->getIsFinish() === 1 ? $match->getHomeGoalCount() . " - " . $match->getAwayGoalCount() : " "];
-                array_push($thisWeek,$result);
             }
             array_push($arrayMatches,$thisWeek);
         }
@@ -50,17 +49,17 @@ class FixtureController extends AbstractController
     {
         foreach($this->getTeams() as $key=>$team) {
             $randomAway = $this->findRandomTeam($team);
-            for ($i = 0 ; $i < 17 ; $i++) {
+            for ($i = 1 ; $i <= 17 ; $i++) {
                 $match = new Match();
-                $randomAwayTeam = $randomAway[$i];
-                $match->setHomeTeam($team)->setAwayTeam($randomAwayTeam)->setWeek($i+1);
+                $randomAwayTeam = $randomAway[$i-1];
+                $match->setHomeTeam($team)->setAwayTeam($randomAwayTeam)->setWeek($i);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($match);
                 $entityManager->flush();
                 $temp = new Match();
                 $temp->setHomeTeam($match->getAwayTeam())
                     ->setAwayTeam($match->getHomeTeam())
-                    ->setWeek(($i+1) + 17);
+                    ->setWeek($i+ 17);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($temp);
                 $entityManager->flush();
