@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Team;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Team|null find($id, $lockMode = null, $lockVersion = null)
  * @method Team|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,11 +15,10 @@ class TeamRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Team::class);
     }
-
     // /**
     //  * @return Team[] Returns an array of Team objects
     //  */
-
+    /*
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('t')
@@ -34,7 +30,8 @@ class TeamRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-
+    */
+    /*
     public function findOneBySomeField($value): ?Team
     {
         return $this->createQueryBuilder('t')
@@ -44,4 +41,5 @@ class TeamRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+    */
 }
