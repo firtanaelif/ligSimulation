@@ -1,4 +1,4 @@
-# 90Pixel-homework2
+# Lig-Simulation
 Backend 3. Hafta Ödevi
 Symfony ve Doctrine kullanarak Docker üzerinde çalışacak şekilde bir Süper Lig sezonu simülasyonu yapmanız isteniyor.
 
